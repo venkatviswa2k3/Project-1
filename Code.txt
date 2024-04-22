@@ -1,0 +1,33 @@
+int flexs = A0;
+int data = 0;
+
+void setup()
+{
+Serial.begin(9600);
+pinMode(flexs, INPUT);
+Serial.println("Flex Sensor Readings");
+}
+
+void loop()
+{
+  data = analogRead(flexs);
+  Serial.println(data);
+
+  if (data > 250 && data < 262)
+  {
+    Serial.println("Hi");
+  }
+  else if (data > 262)
+  {
+    Serial.println("I Need Food");
+  }
+  else if (data < 250 && data > 230)
+  {
+    Serial.println("NO Message");
+  }
+  else if (data < 240 && data > 200)
+  {
+    Serial.println("I need water");
+  }
+  delay(1000);
+}
